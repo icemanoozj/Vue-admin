@@ -2,16 +2,23 @@ import Login from './views/Login.vue'
 import NotFound from './views/404.vue'
 import Home from './views/Home.vue'
 import Main from './views/Main.vue'
-import Table from './views/nav1/Table.vue'
-import Form from './views/nav1/Form.vue'
-import user from './views/nav1/user.vue'
-import Page4 from './views/nav2/Page4.vue'
-import Page5 from './views/nav2/Page5.vue'
-import Page6 from './views/nav3/Page6.vue'
-import echarts from './views/charts/echarts.vue'
 
-let routes = [
-    {
+import Articles from './views/nav1/articles.vue'
+import Authors from './views/nav1/authors.vue'
+import NewArticle from './views/nav1/newArticle.vue'
+
+import Users from './views/nav2/users.vue'
+import Myself from './views/nav2/myself.vue'
+
+import Advs from './views/nav3/Advs.vue'
+import AdvCharts from './views/nav3/AdvCharts.vue'
+
+import AdvOwners from './views/nav4/advOwners.vue'
+import PVCharts from './views/nav4/pvCharts.vue'
+import ClickCharts from './views/nav4/clickCharts.vue'
+
+
+let routes = [{
         path: '/login',
         component: Login,
         name: '',
@@ -27,42 +34,43 @@ let routes = [
     {
         path: '/',
         component: Home,
-        name: '网关信息',
-        iconCls: 'el-icon-message',//图标样式class
+        name: '文章管理',
+        iconCls: 'el-icon-message', //图标样式class
         children: [
-            { path: '/main', component: Main, name: '主页', hidden: true },
-            { path: '/table', component: Table, name: '信息修改' },
-            { path: '/form', component: Form, name: 'Form' },
-            { path: '/user', component: user, name: '信息展示以及查询' },
+            { path: '/newArticle', component: NewArticle, name: '新增文章' },
+            { path: '/articles', component: Articles, name: '文章列表' },
+            { path: '/authors', component: Authors, name: '作者管理' }
         ]
     },
     {
         path: '/',
         component: Home,
-        name: '导航二',
+        name: '用户管理',
         iconCls: 'fa fa-id-card-o',
         children: [
-            { path: '/page4', component: Page4, name: '页面4' },
-            { path: '/page5', component: Page5, name: '页面5' }
+            { path: '/users', component: Users, name: '用户列表' },
+            { path: '/myself', component: Myself, name: '当前用户' }
         ]
     },
     {
         path: '/',
         component: Home,
-        name: '',
+        name: '广告管理',
         iconCls: 'fa fa-address-card',
-        leaf: true,//只有一个节点
         children: [
-            { path: '/page6', component: Page6, name: '导航三' }
+            { path: '/advs', component: Advs, name: '广告列表' },
+            { path: '/advCharts', component: AdvCharts, name: '广告统计' }
         ]
     },
     {
         path: '/',
         component: Home,
-        name: 'Charts',
+        name: '广告商管理',
         iconCls: 'fa fa-bar-chart',
         children: [
-            { path: '/echarts', component: echarts, name: 'echarts' }
+            { path: '/advOwners', component: AdvOwners, name: '广告商列表' },
+            { path: '/pvCharts', component: PVCharts, name: '展现量统计' },
+            { path: '/clickCharts', component: ClickCharts, name: '点击量统计' }
         ]
     },
     {
